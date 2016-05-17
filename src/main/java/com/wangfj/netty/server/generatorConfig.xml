@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 导入数据库相关的驱动包开始 -->
+	<classPathEntry location="D:\Program Files (x86)\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+	<!-- 导入数据库相关的驱动包结束 -->
+	<context id="context1">
+	<commentGenerator> 
+   			<property name="suppressAllComments" value="true" /> 
+  		</commentGenerator>
+		<!-- 数据库相关驱动连接设置 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.6.2.43:3306/wfj_pcm" userId="root"
+			password="pcm" />
+		<!-- 自动生成的实体类的设置 -->
+		<javaModelGenerator targetPackage="com.wangfj.product.maindata.domain.entity"
+			targetProject="pcm-service" />
+		<!-- 自动生成的mapper接口的设置 -->
+		<sqlMapGenerator targetPackage="com.wangfj.product.maindata.persistence"
+			targetProject="pcm-service" />
+		<!-- 自动生成的mapper.xml文件的设置 -->
+		<javaClientGenerator targetPackage="com.wangfj.product.maindata.persistence"
+			targetProject="pcm-service" type="XMLMAPPER" />
+		<!-- 数据库中对应表格的设置 -->
+		<table domainObjectName="PcmShoppeProductExtend" tableName="pcm_shoppe_product_extend"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false">
+		</table> 
+	</context>
+</generatorConfiguration>

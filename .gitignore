@@ -1,0 +1,8 @@
+.svn
+.settings
+.project
+.classpath
+log/
+logs/
+target/
+/common-core/
