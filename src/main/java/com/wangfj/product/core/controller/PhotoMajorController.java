@@ -124,7 +124,7 @@ public class PhotoMajorController {
 
 				// 删除先前的关系
 				PcmProductCategory pa = new PcmProductCategory();
-				pa.setProductSid((productSid));
+				pa.setProductSid(Long.valueOf(productSid));
 				pa.setChannelSid(Long.valueOf(channelSid));
 				this.productCategoryService.deleteByRecord(pa);
 				// this.ssdProductParametersService.deleteByCPSid(productSid,
@@ -134,7 +134,7 @@ public class PhotoMajorController {
 				PcmProductCategory spc = new PcmProductCategory();
 				spp.setProductSid(Long.valueOf(productSid.trim()));
 				spp.setChannelSid(Long.valueOf(channelSid));
-				spc.setProductSid((productSid.trim()));
+				spc.setProductSid(Long.valueOf(productSid.trim()));
 				spc.setChannelSid(Long.valueOf(channelSid));
 				Object catearray = m.get("cateArray");
 				if ("".equals(catearray) || catearray == null) {

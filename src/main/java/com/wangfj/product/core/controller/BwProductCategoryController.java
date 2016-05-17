@@ -119,7 +119,7 @@ public class BwProductCategoryController extends BaseController {
 			ProductCategoryPara procatePara) {
 		Long pid = procatePara.getPid();
 		PcmProductCategory spc = new PcmProductCategory();
-		spc.setProductSid(pid.toString());
+		spc.setProductSid(pid);
 		List<PcmProductCategory> spcs = this.productCategoryService.selectList(spc);
 		List<Long> cateId = new ArrayList<Long>();
 		for (PcmProductCategory s : spcs) {
@@ -152,7 +152,7 @@ public class BwProductCategoryController extends BaseController {
 		String productSid = procatePara.getProductSid();
 		String categorySid = procatePara.getCategorySid();
 		PcmProductCategory spc = new PcmProductCategory();
-		spc.setProductSid((productSid));
+		spc.setProductSid(Long.valueOf(productSid));
 		this.productCategoryService.deleteByRecord(spc);
 		boolean flag = true;
 		if (!(categorySid == null || "".equals(categorySid))) {
@@ -161,7 +161,7 @@ public class BwProductCategoryController extends BaseController {
 				if (!(cid == null || "".equals(cid))) {
 					PcmCategory sc = this.categoryService.get(Long.valueOf(cid));
 					PcmProductCategory sp = new PcmProductCategory();
-					sp.setProductSid((productSid));
+					sp.setProductSid(Long.valueOf(productSid));
 					sp.setCategorySid(Long.parseLong(sc.getCategorySid()));
 					sp.setChannelSid(sc.getChannelSid());
 					if (sc.getIsParent() == 0) {
@@ -201,7 +201,7 @@ public class BwProductCategoryController extends BaseController {
 		PcmProductCategory spc = new PcmProductCategory();
 		String id = procatePara.getId();
 		String productSid = procatePara.getProductSid();
-		spc.setProductSid((productSid));
+		spc.setProductSid(Long.valueOf(productSid));
 		// String channelSid = LoadProperties.readValue("channel.WEB");
 		List<PcmProductCategory> spcs = this.productCategoryService.selectList(spc);
 

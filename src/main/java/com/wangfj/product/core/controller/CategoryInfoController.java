@@ -327,6 +327,7 @@ public class CategoryInfoController extends BaseController {
 				exceptionLogdto.setInterfaceName("addCategoryByParam");
 				exceptionLogdto.setExceptionType(StatusCode.EXCEPTION_CATEGORY
 						.getStatus());
+				exceptionLogdto.setErrorCode(e1.getCode());
 				exceptionLogdto.setDataContent(catedto.toString());
 				exceptionLogdto.setErrorMessage(e1.getMessage());
 
@@ -367,6 +368,7 @@ public class CategoryInfoController extends BaseController {
 				exceptionLogdto.setInterfaceName("updateCategoryByParam");
 				exceptionLogdto.setExceptionType(StatusCode.EXCEPTION_CATEGORY
 						.getStatus());
+				exceptionLogdto.setErrorCode(e1.getCode());
 				exceptionLogdto.setDataContent(catedto.toString());
 				exceptionLogdto.setErrorMessage(e1.getMessage());
 

@@ -444,7 +444,7 @@ public class BwCategoryController extends BaseController {
 		String productSid = catePara.getProductSid();
 		String id = catePara.getId();
 		PcmProductCategory spc = new PcmProductCategory();
-		spc.setProductSid((productSid));
+		spc.setProductSid(Long.valueOf(productSid));
 		String channelSid = LoadProperties.readValue("channel.WEB");
 		List<PcmProductCategory> spcs = this.productCategoryService.selectList(spc);
 		if (spcs.size() > 0 && (id == null || "".equals(id))) {
