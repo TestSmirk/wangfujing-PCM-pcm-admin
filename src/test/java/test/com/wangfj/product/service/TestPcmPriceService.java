@@ -41,7 +41,7 @@ public class TestPcmPriceService {
 
 	}
 
-	@Test
+/*	@Test
 	public void testQueryExpirePriceInfoList() {
 		List<PcmPrice> pcmPriceList = new ArrayList<PcmPrice>();
 		pcmPriceList = pcmPriceService.queryExpirePriceInfoList();
@@ -49,6 +49,6 @@ public class TestPcmPriceService {
 			System.out.println(pcmPriceList.toString());
 		else
 			System.out.println("ShoppePro price info not exist");
-	}
+	}*/
 
 }
