@@ -231,7 +231,7 @@ public class CategoryInfoController extends BaseController {
 
 								logger.info("API,addTjCategoryTOErp.htm,synPushToERP,response:"
 										+ response);
-								// 统计分类下发给门店ERP,SAP
+								// 统计分类下发给门店ERP
 								String url = PropertyUtil
 										.getSystemUrl("category.synPushToERP");
 								HttpUtil.doPost(url,
@@ -239,15 +239,16 @@ public class CategoryInfoController extends BaseController {
 
 								logger.info("API,addTjCategoryTOErp.htm,synPushToSearch,response:"
 										+ response);
-								/*List<PublishDTO> paraList = new ArrayList<PublishDTO>();
+								// 统计分类下发给门店SAP
+								List<PublishDTO> paraList = new ArrayList<PublishDTO>();
 								PublishDTO dto = new PublishDTO();
 								dto.setSid(catedto.getSid());
 								dto.setType(Constants.PUSH_TYPE_U);
 								paraList.add(dto);
 								String cateUrl = PropertyUtil
-										.getSystemUrl("category.synPushToSearch");
+										.getSystemUrl("category.synPushTjCateToSAP");
 								HttpUtil.doPost(cateUrl,
-										JsonUtil.getJSONString(paraList));*/
+										JsonUtil.getJSONString(paraList));
 
 							} catch (Exception e) {
 								e.printStackTrace();
