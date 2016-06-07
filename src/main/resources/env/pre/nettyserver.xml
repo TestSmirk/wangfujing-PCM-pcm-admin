@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netty-server-info xmlns="http://www.wangfujing.com/nettyserver"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.wangfujing.com/nettyserver nettyserver.xsd ">
+	<!--基础配置 -->
+	<base-info>
+		<!--服务名 -->
+		<server-name>pcm-admin</server-name>
+		<!--服务context地址 -->
+		<server-root>/pcm-admin</server-root>
+		<!--系统码 -->
+		<server-code>11</server-code>
+		<!--系统描述，将写入zk -->
+		<server-desc>
+			'{'"version"\:"1.0", "name"\:"wfj-onmi-channel-pcm-admin", "status"\:"{0}"}
+		</server-desc>
+		<!--最大请求数 -->
+		<max-income-thread-count>1000</max-income-thread-count>
+		<!--是否需要安全认证 -->
+		<ssh-info isSSL="false" needClientAuth="false">
+			<!--数字签名文件位置 -->
+			<keystore-path>keystore-path</keystore-path>
+			<!--数字签名密码 -->
+			<keystore-passwd>keystore-passwd</keystore-passwd>
+			<!--数字签名证书密码 -->
+			<keystore-certpasswd>keystore-certpasswd</keystore-certpasswd>
+		</ssh-info>
+	</base-info>
+	<!--是否spring服务 -->
+	<spring isSpring="true" isSpringServlet="true">
+		<!--拦截url,可为空 -->
+		<main-config-path>/</main-config-path>
+		<!--spring上下文配置 -->
+		<main-context-path>applicationContext.xml</main-context-path>
+		<!--spring mvc相关配置 -->
+		<main-servlet-path>springmvc-servlet.xml</main-servlet-path>
+		<plus-servlet-path></plus-servlet-path>
+	</spring>
+	<!--dispatcher配置 -->
+	<dispather-infos>
+		<!--dispatcher对应servlet配置 -->
+		<servlet isSpring="true"
+			servlet-class="org.springframework.web.servlet.DispatcherServlet"
+			servlet-name="dispatcher" servlet-suffix="*.htm$,*.json,*.do">
+		</servlet>
+	</dispather-infos>
+	<!--监控信息配置 -->
+	<monitor-info isDebug="false">
+		<!--监控信息 -->
+		<monitor-server>
+			<!--zk地址：格式为ip1:port1,ip2:port2,ip3:port3 -->
+			<server-path>10.6.4.49:2181,10.6.4.50:2181,10.6.4.51:2181</server-path>
+			<!--zk连接超时时间 -->
+			<server-timeout>5000</server-timeout>
+			<!--zk重连次数 -->
+			<server-reconnect-count>5</server-reconnect-count>
+		</monitor-server>
+		<!--sql监控数据配置 -->
+		<count-server acks="1" batch-size="16384" retries="0">
+			<!--kafka地址：格式为ip1:port1,ip2:port2,ip3:port3 -->
+			<server-path>10.6.4.54:9092,10.6.4.55:9092,10.6.4.56:9092</server-path>
+			<!--kafka对应topic -->
+			<server-topic>sql-info</server-topic>
+		</count-server>
+	</monitor-info>
+</netty-server-info>
