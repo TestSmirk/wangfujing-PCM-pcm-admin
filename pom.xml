@@ -86,16 +86,9 @@
 			<artifactId>validation-api</artifactId>
 			<version>1.0.0.GA</version>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.0</version>
-		</dependency>
+		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId> 
+			<version>2.5</version> </dependency> <dependency> <groupId>javax.servlet</groupId> 
+			<artifactId>jsp-api</artifactId> <version>2.0</version> </dependency> -->
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
@@ -121,9 +114,17 @@
 			<artifactId>spring-oxm</artifactId>
 			<version>4.1.4.RELEASE</version>
 		</dependency>
-		<!-- <dependency> <groupId>com.wfj</groupId> <artifactId>netty-wfj-base-dev</artifactId> 
-			<version>1.0.1</version> <exclusions> <exclusion> <artifactId>slf4j-log4j12</artifactId> 
-			<groupId>org.slf4j</groupId> </exclusion> </exclusions> </dependency> -->
+		<!-- <dependency>
+			<groupId>com.wfj</groupId>
+			<artifactId>netty-wfj-base-dev</artifactId>
+			<version>1.0.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
 	</dependencies>
 	<build>
 		<resources>

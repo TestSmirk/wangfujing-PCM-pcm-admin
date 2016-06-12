@@ -21,7 +21,7 @@ public class ServerControlHandler {
 
 	private static Server server;
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		if (args != null && args.length != 0 && (args[0].equals("stop"))) {
 			int ctrlPort = Integer.parseInt(args[1]);
 			Socket s = new Socket("localhost", ctrlPort);
