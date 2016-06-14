@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
-				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
 	default-autowire="byName">
 
@@ -14,8 +14,8 @@
 	<context:component-scan base-package="com.wangfj.**.controller" />
 
 	<!-- jsr303数据校验的配置 --><!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 请求映射 -->
-	<mvc:annotation-driven/>
-	<!-- <mvc:annotation-driven
+	<!-- <mvc:annotation-driven/> -->
+	<mvc:annotation-driven
 		content-negotiation-manager="contentNegotiationManager" />
 	<bean id="contentNegotiationManager"
 		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
@@ -30,7 +30,7 @@
 				*=*/*
 			</value>
 		</property>
-	</bean> -->
+	</bean>
 	<!-- 在controller中，将对象转成json返回 -->
 	<bean id="jacksonMessageConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
@@ -47,31 +47,17 @@
 		value=".jsp" /> </bean> -->
 	<!-- 针对freemarker的视图配置 freemarkerConfig中指定视图路径，在viewResolver中指定视图格式 -->
 
-	<!-- <bean id="freemarkerConfig"
-		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="/freemarker/" />
-		<property name="freemarkerSettings">
-			<props>
-				<prop key="template_update_delay">0</prop>
-				<prop key="default_encoding">UTF-8</prop>
-				<prop key="number_format">0.##########</prop>
-				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
-				<prop key="classic_compatible">true</prop>
-				<prop key="template_exception_handler">ignore</prop>
-			</props>
-		</property>
-	</bean>
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-		<property name="cache" value="true" />
-		<property name="prefix" value="" />
-		<property name="suffix" value=".ftl" />
-		<property name="contentType" value="text/html;charset=UTF-8"></property>
-		<property name="requestContextAttribute" value="request" />
-		<property name="exposeSpringMacroHelpers" value="true" />
-		<property name="exposeRequestAttributes" value="true" />
-		<property name="exposeSessionAttributes" value="true" />
-	</bean> -->
+	<!-- <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"> 
+		<property name="templateLoaderPath" value="/freemarker/" /> <property name="freemarkerSettings"> 
+		<props> <prop key="template_update_delay">0</prop> <prop key="default_encoding">UTF-8</prop> 
+		<prop key="number_format">0.##########</prop> <prop key="datetime_format">yyyy-MM-dd 
+		HH:mm:ss</prop> <prop key="classic_compatible">true</prop> <prop key="template_exception_handler">ignore</prop> 
+		</props> </property> </bean> <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"> 
+		<property name="cache" value="true" /> <property name="prefix" value="" /> 
+		<property name="suffix" value=".ftl" /> <property name="contentType" value="text/html;charset=UTF-8"></property> 
+		<property name="requestContextAttribute" value="request" /> <property name="exposeSpringMacroHelpers" 
+		value="true" /> <property name="exposeRequestAttributes" value="true" /> 
+		<property name="exposeSessionAttributes" value="true" /> </bean> -->
 
 	<!-- 缓存自动提交 -->
 	<mvc:interceptors>
