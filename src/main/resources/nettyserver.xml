@@ -15,7 +15,7 @@
 			'{'"version"\:"1.0", "name"\:"wfj-onmi-channel-pcm-admin", "status"\:"{0}"}
 		</server-desc>
 		<!--最大请求数 -->
-		<max-income-thread-count>1000</max-income-thread-count>
+		<max-income-thread-count>${system.setting.max-income-counts}</max-income-thread-count>
 		<!--是否需要安全认证 -->
 		<ssh-info isSSL="false" needClientAuth="false">
 			<!--数字签名文件位置 -->
@@ -45,11 +45,11 @@
 		</servlet>
 	</dispather-infos>
 	<!--监控信息配置 -->
-	<monitor-info isDebug="false">
+	<monitor-info isDebug="${system.seeting.monitor.isDebug}">
 		<!--监控信息 -->
 		<monitor-server>
 			<!--zk地址：格式为ip1:port1,ip2:port2,ip3:port3 -->
-			<server-path>10.6.2.78:2181,10.6.2.79:2181,10.6.2.80:2181,10.6.2.87:2181,10.6.2.88:2181</server-path>
+			<server-path>${system.seeting.monitor.url}</server-path>
 			<!--zk连接超时时间 -->
 			<server-timeout>5000</server-timeout>
 			<!--zk重连次数 -->
@@ -58,9 +58,9 @@
 		<!--sql监控数据配置 -->
 		<count-server acks="1" batch-size="16384" retries="0">
 			<!--kafka地址：格式为ip1:port1,ip2:port2,ip3:port3 -->
-			<server-path>10.6.3.109:9092,10.6.3.110:9092,10.6.3.111:9092</server-path>
+			<server-path>${system.setting.kafka.bootstrap.servers}</server-path>
 			<!--kafka对应topic -->
-			<server-topic>sql-info</server-topic>
+			<server-topic>${system.setting.kafka.sql.topic}</server-topic>
 		</count-server>
 	</monitor-info>
 </netty-server-info>
