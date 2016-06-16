@@ -56,6 +56,7 @@ import com.wangfj.product.maindata.domain.vo.SkuPageDto;
 import com.wangfj.product.maindata.domain.vo.SpuPageDto;
 import com.wangfj.product.maindata.domain.vo.UpdateProductInfoDto;
 import com.wangfj.product.maindata.service.intf.IPcmProDetailService;
+import com.wangfj.product.maindata.service.intf.IPcmProductPictureService;
 import com.wangfj.product.maindata.service.intf.IPcmProductService;
 import com.wangfj.product.maindata.service.intf.IPcmProductTypeDictService;
 import com.wangfj.product.maindata.service.intf.IPcmShoppeProductService;
@@ -74,6 +75,8 @@ public class PcmProductController extends BaseController {
 	private PcmExceptionLogService pcmExceptionLogService;
 	@Autowired
 	private IPcmProductTypeDictService proTypeService;
+	@Autowired
+	private IPcmProductPictureService picService;
 	@Autowired
 	private ThreadPoolTaskExecutor taskExecutor;
 	List<PublishDTO> sidList = null;
@@ -1042,7 +1045,23 @@ public class PcmProductController extends BaseController {
 		pcm.setProductSid(String.valueOf(paramMap.get("productSid")));
 		pcm.setLongDesc(String.valueOf(paramMap.get("longDesc")));
 		pcm.setShortDes(String.valueOf(paramMap.get("shortDesc")));
-		String message = spuService.updateProByParam(pcm);
-		return ResultUtil.creComSucResult(message);
+		Map<String, Object> updateProByParam = spuService.updateProByParam(pcm);
+		if (updateProByParam.get("skuList") != null) {
+			List<PublishDTO> skuSidList = (List<PublishDTO>) updateProByParam.get("skuList");
+			HttpUtil.doPost(PropertyUtil.getSystemUrl("product.pushSkuProduct"),
+					JsonUtil.getJSONString(skuSidList));
+			HttpUtil.doPost(PropertyUtil.getSystemUrl("product.pushSkuProduct2"),
+					JsonUtil.getJSONString(skuSidList));
+			PcmProduct spu = (PcmProduct) updateProByParam.get("spu");
+			List<PublishDTO> spuSidList = new ArrayList<PublishDTO>();
+			PublishDTO dto = new PublishDTO();
+			dto.setSid(spu.getSid());
+			dto.setType(1);
+			spuSidList.add(dto);
+			HttpUtil.doPost(PropertyUtil.getSystemUrl("product.pushSpuProduct"),
+					JsonUtil.getJSONString(spuSidList));
+			picService.redisSpuCMSSHopperInfo(spu.getProductSid());
+		}
+		return ResultUtil.creComSucResult((String) updateProByParam.get("message"));
 	}
 }
