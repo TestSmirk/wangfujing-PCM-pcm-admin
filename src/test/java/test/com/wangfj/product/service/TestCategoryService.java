@@ -3,7 +3,6 @@
  * @Path: test.com.wangfj.product.serviceTestCategoryService.java
  * @Create By duanzhaole
  * @Create In 2015年7月17日 下午3:16:27
- * TODO
  */
 package test.com.wangfj.product.service;
 
@@ -70,7 +69,6 @@ public class TestCategoryService {
 		try {
 			date = sdf.parse("2015-07-21 20:12:12");
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		pcmcatedto.setSuccessTime(date);

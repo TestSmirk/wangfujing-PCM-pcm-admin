@@ -3,7 +3,6 @@
  * @Path: com.wangfj.product.core.controllerProductPropValueController.java
  * @Create By duanzhaole
  * @Create In 2015年8月11日 下午1:43:57
- * TODO
  */
 package com.wangfj.product.core.controller;
 

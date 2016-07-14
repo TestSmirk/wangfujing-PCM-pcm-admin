@@ -60,10 +60,8 @@ public class ColorDictController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = colorDictService.saveColorDict(entity);
@@ -100,10 +98,8 @@ public class ColorDictController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = colorDictService.updateColorDict(entity);
@@ -140,10 +136,8 @@ public class ColorDictController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = colorDictService.deleteColorDict(entity);

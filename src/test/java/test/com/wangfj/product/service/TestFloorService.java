@@ -3,7 +3,6 @@
  * @Path: test.com.wangfj.product.serviceTest.java
  * @Create By wuxiong
  * @Create In 2015年7月27日 上午9:55:48
- * TODO
  */
 package test.com.wangfj.product.service;
 
@@ -48,7 +47,6 @@ public class TestFloorService {
 		try {
 			page = pcmFloorService.findFloorFromPCM(floordto, pagedto);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println(page.getList().size());

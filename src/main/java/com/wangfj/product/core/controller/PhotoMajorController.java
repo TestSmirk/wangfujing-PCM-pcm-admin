@@ -3,7 +3,6 @@
  * @Path: net.shopin.photoPhotoMajorController.java
  * @Create By ghost
  * @Create In 2013-11-22 下午2:15:58
- * TODO
  */
 package com.wangfj.product.core.controller;
 

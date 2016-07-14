@@ -61,10 +61,8 @@ public class BusinessTypeDictController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = businessTypeService.saveBusinessTypeDict(entity);

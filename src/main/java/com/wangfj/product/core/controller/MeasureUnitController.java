@@ -60,10 +60,8 @@ public class MeasureUnitController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = measureService.saveMeasureUnit(entity);
@@ -100,10 +98,8 @@ public class MeasureUnitController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = measureService.updateMeasureUnit(entity);
@@ -140,10 +136,8 @@ public class MeasureUnitController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = measureService.deleteMeasureUnit(entity);

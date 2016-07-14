@@ -60,10 +60,8 @@ public class PackUnitController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = packService.savePackUnit(entity);
@@ -101,10 +99,8 @@ public class PackUnitController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = packService.updatePackUnit(entity);
@@ -141,10 +137,8 @@ public class PackUnitController extends BaseController {
 		try {
 			BeanUtils.copyProperties(entity, para);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int res = packService.deletePackUnit(entity);

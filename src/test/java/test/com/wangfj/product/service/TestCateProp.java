@@ -3,7 +3,6 @@
  * @Path: test.com.wangfj.product.persistence.categoryTestCateProp.java
  * @Create By duanzhaole
  * @Create In 2015年7月30日 下午4:34:04
- * TODO
  */
 package test.com.wangfj.product.service;
 
