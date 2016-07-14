@@ -102,7 +102,7 @@ public class TestUserController {
 		String fileName = "pcm";
 		/*
 		 * try { RsaKeyFileGenerator.genAndOutToFile(2048, fileName); } catch
-		 * (IOException e) { // TODO Auto-generated catch block
+		 * (IOException e) {
 		 * e.printStackTrace(); }
 		 */
 	}

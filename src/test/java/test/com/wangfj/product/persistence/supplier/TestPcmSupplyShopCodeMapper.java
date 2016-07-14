@@ -44,7 +44,6 @@ public class TestPcmSupplyShopCodeMapper {
 			int update = pcmSupplyShopCodeMapper.updateByPrimaryKeySelective(record);
 			System.out.println(update);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -53,7 +52,6 @@ public class TestPcmSupplyShopCodeMapper {
 			PcmSupplyShopCode psbc = pcmSupplyShopCodeMapper.selectByPrimaryKey(2l);
 			System.out.println(psbc.getPromoSaleCode());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

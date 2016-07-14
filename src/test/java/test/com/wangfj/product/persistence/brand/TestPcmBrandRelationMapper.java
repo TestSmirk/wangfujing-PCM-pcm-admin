@@ -42,7 +42,6 @@ public class TestPcmBrandRelationMapper {
 		try {
 			list2 = pcmBrandRelationMapper.selectByBrands(map);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println(list2.size());
@@ -61,7 +60,6 @@ public class TestPcmBrandRelationMapper {
 			int insert = pcmBrandRelationMapper.insertSelective(record);
 			System.out.println(insert);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -74,7 +72,6 @@ public class TestPcmBrandRelationMapper {
 			int update = pcmBrandRelationMapper.updateByPrimaryKeySelective(record);
 			System.out.println(update);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -83,7 +80,6 @@ public class TestPcmBrandRelationMapper {
 			int delete = pcmBrandRelationMapper.deleteByPrimaryKey(2l);
 			System.out.println();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
