@@ -1,6 +1,8 @@
 package test.com.wangfj.product.service;
 
-import java.util.List;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import redis.clients.jedis.JedisCluster;
 
 import com.wangfj.core.utils.CacheUtils;
 import com.wangfj.core.utils.RedisUtil;
@@ -150,5 +150,28 @@ public class TestUserService {
 		// System.out.println(redisUtil.del(DomainName.selectCateGory + i));
 		// }
 
+	}
+
+	@Test
+	public void test111() {
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		String tsStr = "2011-05-09 11:49:45";
+		Date date = new Date();
+		redisUtil.releaseLock("pcm_test0001");
+		boolean flag = redisUtil.getLock("pcm_test0001", Timestamp.valueOf(tsStr).getTime() + "",
+				addDate(Timestamp.valueOf(tsStr), Calendar.SECOND, 60).getTime());
+		System.out.println(Timestamp.valueOf(tsStr).getTime());
+		System.out.println(addDate(Timestamp.valueOf(tsStr), Calendar.SECOND, 60).getTime());
+		System.out.println("=============:" + flag);
+		flag = redisUtil.getLock("pcm_test0001", Timestamp.valueOf(tsStr).getTime() + "",
+				addDate(Timestamp.valueOf(tsStr), Calendar.SECOND, 60).getTime());
+		System.out.println("-------------:" + flag);
+	}
+
+	private Date addDate(Date date, int filed, int value) {
+		java.util.Calendar now = java.util.Calendar.getInstance();
+		now.setTime(date);
+		now.set(filed, value);
+		return now.getTime();
 	}
 }
