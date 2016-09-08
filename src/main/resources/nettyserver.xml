@@ -25,42 +25,24 @@
 			<!--数字签名证书密码 -->
 			<keystore-certpasswd>keystore-certpasswd</keystore-certpasswd>
 		</ssh-info>
+		<base-params>
+			<param param-name="contextConfigLocation"
+				param-value="classpath*:applicationContext.xml,classpath*:springmvc-servlet.xml" />
+		</base-params>
 	</base-info>
-	<!--是否spring服务 -->
-	<spring isSpring="true" isSpringServlet="true">
-		<!--拦截url,可为空 -->
-		<main-config-path>/</main-config-path>
-		<!--spring上下文配置 -->
-		<main-context-path>applicationContext.xml</main-context-path>
-		<!--spring mvc相关配置 -->
-		<main-servlet-path>springmvc-servlet.xml</main-servlet-path>
-		<plus-servlet-path></plus-servlet-path>
-	</spring>
+	<listener-infos>
+		<listener listener-class="org.springframework.web.context.ContextLoaderListener" />
+	</listener-infos>
+	<filter-infos>
+		<filter filter-class="com.wfj.netty.servlet.filter.Monitor"
+			filter-name="servlet-monitor">
+			<filter-mapping url-pattern="/*" />
+		</filter>
+	</filter-infos>
 	<!--dispatcher配置 -->
 	<dispather-infos>
 		<!--dispatcher对应servlet配置 -->
-		<servlet isSpring="true"
-			servlet-class="org.springframework.web.servlet.DispatcherServlet"
-			servlet-name="dispatcher" servlet-suffix="*.htm$,*.json,*.do">
-		</servlet>
+		<servlet servlet-class="org.springframework.web.servlet.DispatcherServlet"
+			servlet-name="dispatcher" servlet-suffix="*.htm$,*.html$,*.json,*.do" />
 	</dispather-infos>
-	<!--监控信息配置 -->
-	<monitor-info isDebug="${system.seeting.monitor.isDebug}">
-		<!--监控信息 -->
-		<monitor-server>
-			<!--zk地址：格式为ip1:port1,ip2:port2,ip3:port3 -->
-			<server-path>${system.seeting.monitor.url}</server-path>
-			<!--zk连接超时时间 -->
-			<server-timeout>5000</server-timeout>
-			<!--zk重连次数 -->
-			<server-reconnect-count>5</server-reconnect-count>
-		</monitor-server>
-		<!--sql监控数据配置 -->
-		<count-server acks="1" batch-size="16384" retries="0">
-			<!--kafka地址：格式为ip1:port1,ip2:port2,ip3:port3 -->
-			<server-path>${system.setting.kafka.bootstrap.servers}</server-path>
-			<!--kafka对应topic -->
-			<server-topic>${system.setting.kafka.sql.topic}</server-topic>
-		</count-server>
-	</monitor-info>
 </netty-server-info>
