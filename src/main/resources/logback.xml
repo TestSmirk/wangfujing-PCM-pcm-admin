@@ -33,9 +33,13 @@
 	      <appender-ref ref="FILE" />
 	</appender>
 	
-	
 	<logger name="com.wfj.netty.monitor" additivity="false">
 		<level value="WARN" />
+		<appender-ref ref="ASYNC" />
+	</logger>
+	<logger name="com.wfj.netty" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
 		<appender-ref ref="ASYNC" />
 	</logger>
 	<logger name="org" additivity="false">
