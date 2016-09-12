@@ -14,8 +14,8 @@
 	<context:component-scan base-package="com.wangfj.**.controller" />
 
 	<!-- jsr303数据校验的配置 --><!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 请求映射 -->
-	<mvc:annotation-driven/>
-	<!-- <mvc:annotation-driven
+	<!-- <mvc:annotation-driven/> -->
+	<mvc:annotation-driven
 		content-negotiation-manager="contentNegotiationManager" />
 	<bean id="contentNegotiationManager"
 		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
@@ -30,7 +30,7 @@
 				*=*/*
 			</value>
 		</property>
-	</bean> -->
+	</bean>
 	<!-- 在controller中，将对象转成json返回 -->
 	<bean id="jacksonMessageConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
