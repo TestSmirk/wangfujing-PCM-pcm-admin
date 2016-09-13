@@ -33,7 +33,7 @@
 	<listener-infos>
 		<listener listener-class="org.springframework.web.context.ContextLoaderListener" />
 	</listener-infos>
-	<filter-infos>
+	<filter-infos onStartup="true">
 		<filter filter-class="com.wfj.netty.servlet.filter.Monitor"
 			filter-name="servlet-monitor">
 			<filter-mapping url-pattern="/*" />
