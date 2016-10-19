@@ -1043,8 +1043,16 @@ public class PcmProductController extends BaseController {
 	public Map<String, Object> editSpuproBySpu(@RequestBody Map<String, Object> paramMap) {
 		PcmProduct pcm = new PcmProduct();
 		pcm.setProductSid(String.valueOf(paramMap.get("productSid")));
-		pcm.setLongDesc(String.valueOf(paramMap.get("longDesc")));
-		pcm.setShortDes(String.valueOf(paramMap.get("shortDesc")));
+		if(paramMap.get("longDesc")!=null){
+			pcm.setLongDesc(String.valueOf(paramMap.get("longDesc")));
+		}else{
+			pcm.setLongDesc(String.valueOf(""));
+		}
+		if(paramMap.get("shortDesc")!=null){
+			pcm.setShortDes(String.valueOf(paramMap.get("shortDesc")));
+		}else{
+			pcm.setShortDes(String.valueOf(""));
+		}
 		Map<String, Object> updateProByParam = spuService.updateProByParam(pcm);
 		if (updateProByParam.get("skuList") != null) {
 			List<PublishDTO> skuSidList = (List<PublishDTO>) updateProByParam.get("skuList");
